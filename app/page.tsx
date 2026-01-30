@@ -2,9 +2,9 @@ import Sidebar from "./_components/Sidebar";
 
 const page = () => {
   return (
-    <section className="h-screen grid grid-cols-[280px_1fr]">
+    <section className="h-screen flex">
       <Sidebar />
-      <div className="bg-brand-light">sd</div>
+      <div className="bg-brand-light grid grow">sd</div>
     </section>
   );
 };
