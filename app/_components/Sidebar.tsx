@@ -12,9 +12,9 @@ const Sidebar = () => {
 
   return (
     <motion.div
-      animate={{ width: isExpanded ? 280 : 64 }}
+      animate={{ width: isExpanded ? 308 : 72 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`bg-brand-light-2 flex flex-col pl-4.5 px-6 py-8 gap-6 text-brand-dark-gray`}
+      className={`bg-brand-light-2 flex flex-col pl-4.5 px-6 py-5 gap-6 `}
     >
       {/* Header Menu  */}
       <div className={`flex justify-start items-center w-full`}>

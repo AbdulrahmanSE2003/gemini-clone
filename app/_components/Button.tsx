@@ -12,8 +12,9 @@ type StandardButtonProps = {
 type ButtonProps = MotionButtonProps | StandardButtonProps;
 
 const Button = (props: ButtonProps) => {
-  if (props.isMotioned) {
-    const { children, ...otherProps } = props;
+  const { children, isMotioned, ...otherProps } = props;
+
+  if (isMotioned) {
     return (
       <motion.button
         initial={{ opacity: 0 }}
@@ -21,22 +22,20 @@ const Button = (props: ButtonProps) => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
         className={`hover:bg-brand-gray cursor-pointer transition-colors duration-200 rounded-full p-2 ml-auto ${otherProps.className || ""}`}
-        {...otherProps}
+        {...otherProps} // كدة otherProps مفيهاش isMotioned وخلاص
       >
         {children}
       </motion.button>
     );
   }
 
-  const { children, ...otherProps } = props;
   return (
     <button
       className={`hover:bg-brand-gray cursor-pointer transition-colors duration-200 rounded-full p-2 ${otherProps.className || ""}`}
-      {...otherProps}
+      {...otherProps} // ولا هنا كمان
     >
       {children}
     </button>
   );
 };
-
 export default Button;
