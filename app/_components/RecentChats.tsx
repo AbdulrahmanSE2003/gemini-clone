@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "motion/react";
+import {AnimatePresence, motion} from "motion/react";
 
 type chatsProps = {
   isExpanded: boolean;
@@ -16,16 +16,16 @@ const RecentChats = ({ isExpanded }: chatsProps) => {
         >
           <h5 className="my-4">Chats</h5>
           <ul className="">
-            <li className="px-4 py-2 hover:bg-brand-gray rounded-2xl cursor-pointer text-sm transition-colors">
+            <li className="px-4 py-2 hover:bg-brand-gray rounded-2xl text-zinc-900 font-medium text-[0.85rem] cursor-pointer transition-colors">
               Chat History 1
             </li>
-            <li className="px-4 py-2 hover:bg-brand-gray rounded-2xl cursor-pointer text-sm transition-colors">
+            <li className="px-4 py-2 hover:bg-brand-gray rounded-2xl text-zinc-900 font-medium text-[0.85rem] cursor-pointer transition-colors">
               Chat History 2
             </li>
-            <li className="px-4 py-2 hover:bg-brand-gray rounded-2xl cursor-pointer text-sm transition-colors">
+            <li className="px-4 py-2 hover:bg-brand-gray rounded-2xl text-zinc-900 font-medium text-[0.85rem] cursor-pointer transition-colors">
               Chat History 3
             </li>
-            <li className="px-4 py-2 hover:bg-brand-gray rounded-2xl cursor-pointer text-sm transition-colors">
+            <li className="px-4 py-2 hover:bg-brand-gray rounded-2xl text-zinc-900 font-medium text-[0.85rem] cursor-pointer transition-colors">
               Chat History 4
             </li>
           </ul>

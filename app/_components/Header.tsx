@@ -6,7 +6,7 @@ const Header = () => {
       <h3 className="font-medium leading-6 text-2xl  text-brand-dark-gray/85">
         Gemini
       </h3>
-      <div  className={`flex-center gap-6`}>
+      <div className={`flex-center gap-6`}>
         {/*  Upgrade button */}
         <div>
           <div className="flex-center px-6 py-3 gap-3 bg-white rounded-xl justify-between hover:bg-brand-gray transition-colors duration-300 cursor-pointer">

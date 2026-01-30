@@ -1,5 +1,7 @@
-import { AnimatePresence, motion } from "motion/react";
-import { ReactElement, ReactNode } from "react";
+'use client'
+
+import {AnimatePresence, motion} from "motion/react";
+import {ReactElement, ReactNode} from "react";
 import Button from "./Button";
 
 type ButtonItemProps = {
@@ -10,7 +12,7 @@ type ButtonItemProps = {
 
 const ButtonItem = ({ isExpanded, children, icon }: ButtonItemProps) => {
   return (
-    <>
+    <div className={`flex-center`}>
       <Button>{icon}</Button>
       <AnimatePresence mode="wait">
         {isExpanded && (
@@ -19,17 +21,13 @@ const ButtonItem = ({ isExpanded, children, icon }: ButtonItemProps) => {
             animate={{ opacity: 1, width: "auto" }}
             exit={{ opacity: 0, width: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-            style={{
-              overflow: "hidden",
-              display: "inline-block",
-              whiteSpace: "nowrap",
-            }}
+            className={`overflow-hidden`}
           >
             {children}
           </motion.span>
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 
