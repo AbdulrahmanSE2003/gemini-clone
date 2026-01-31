@@ -12,7 +12,8 @@ export const runChat = async (prompt: string) => {
             contents: [{ role: "user", parts: [{ text: prompt }] }],
         });
 
-        console.log(response.text);
+        // console.log(response);
+
 
         return response.text;
     } catch (error) {

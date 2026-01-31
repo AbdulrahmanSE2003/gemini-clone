@@ -1,8 +1,8 @@
 "use client";
-import { AnimatePresence, motion } from "motion/react";
+import {AnimatePresence, motion} from "motion/react";
 
-import { useState } from "react";
-import { Menu, MessageSquarePlus, Search, Settings } from "lucide-react";
+import {useState} from "react";
+import {Menu, MessageSquarePlus, Search, Settings} from "lucide-react";
 import Button from "./Button";
 import RecentChats from "./RecentChats";
 import ButtonItem from "./ButtonItem";

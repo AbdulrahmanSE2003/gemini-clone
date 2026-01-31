@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @theme {
   --color-brand-light: #f0f4f8;
   --color-brand-light-2: #e9eef6;
+  --color-brand-light-3: #E9EEF6;
   --color-brand-gray: #d8dde4;
   --color-brand-dark-gray: #383a3a;
 }

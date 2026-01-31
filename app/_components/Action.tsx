@@ -2,8 +2,12 @@
 import Image from "next/image";
 import {InputField} from "@/app/_components/InputField";
 import {motion} from "motion/react";
+import {context} from "@/app/_context/Context";
+import {useContext} from "react";
 
 export const Action = () => {
+
+    const {messages} = useContext(context)!;
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -24,7 +28,6 @@ export const Action = () => {
         },
     };
 
-    // @ts-ignore
     return (
         <div className="grow w-full flex items-center justify-center">
             <motion.div
@@ -33,14 +36,16 @@ export const Action = () => {
                 initial="hidden"
                 animate="visible"
             >
-                <motion.div variants={itemVariants} className="flex gap-3 items-center px-6">
-                    <Image src="/logo.png" alt="Gemini Logo" width={20} height={20}/>
-                    <span className="text-2xl font-light ">Hi, Abdulrahman</span>
-                </motion.div>
+                {!messages.length && (<>
+                    <motion.div variants={itemVariants} className="flex gap-3 items-center px-6">
+                        <Image src="/logo.png" alt="Gemini Logo" width={20} height={20}/>
+                        <span className="text-2xl font-light ">Hi, Abdulrahman</span>
+                    </motion.div>
 
-                <motion.h2 variants={itemVariants} className="text-4xl mb-4 px-6">
-                    Where should we start?
-                </motion.h2>
+                    <motion.h2 variants={itemVariants} className="text-4xl mb-4 px-6">
+                        Where should we start?
+                    </motion.h2>
+                </>)}
 
                 <motion.div variants={itemVariants}>
                     <InputField/>

@@ -1,16 +1,17 @@
 'use client'
 import * as React from 'react';
+import {useContext} from 'react';
 import {Mic, Plus, SendHorizontal, Settings2} from "lucide-react";
 import ButtonItem from "@/app/_components/ButtonItem";
 import Button from "@/app/_components/Button";
 import {AnimatePresence, motion} from 'motion/react';
-import {runChat} from "@/app/config/config";
+import {context} from "@/app/_context/Context";
 
-type OptionsProps = {
-    text: string
-}
-
-export const InputOptions = ({text}: OptionsProps) => {
+export const InputOptions = () => {
+    const {onSent, text} = useContext(context)!
+    function handleMessage(){
+        onSent(text)
+    }
     return (
         <div className="w-full flex justify-between items-center mt-auto pb-5">
             <div className="flex justify-start items-center gap-4">
@@ -19,7 +20,7 @@ export const InputOptions = ({text}: OptionsProps) => {
             </div>
 
             <div className="relative flex items-center justify-center">
-                <Button onClick={() =>runChat(text)}>
+                <Button onClick={handleMessage}>
                     <AnimatePresence mode="wait">
                         {text ? (
                             <motion.div

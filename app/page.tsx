@@ -3,7 +3,7 @@ import Sidebar from "./_components/Sidebar";
 
 const page = () => {
   return (
-    <section className="h-screen flex">
+    <section className="min-h-screen flex overflow-hidden">
       <Sidebar />
       <Chat />
     </section>

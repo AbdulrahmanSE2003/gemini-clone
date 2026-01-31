@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import {Google_Sans} from "next/font/google";
 import "./globals.css";
 import {ReactNode} from "react";
+import ContextProvider from "@/app/_context/Context";
 
 const googleSans = Google_Sans({
   variable: "--font-google-sans",
@@ -25,7 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${googleSans.variable} antialiased`}>{children}</body>
+      <body className={`${googleSans.variable} antialiased`}>
+      <ContextProvider>
+          {children}
+      </ContextProvider>
+      </body>
     </html>
   );
 }
