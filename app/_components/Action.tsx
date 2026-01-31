@@ -1,21 +1,51 @@
+"use client";
 import Image from "next/image";
 import {InputField} from "@/app/_components/InputField";
+import {motion} from "motion/react";
 
 export const Action = () => {
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.3,
+            },
+        },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, ease: "easeOut" }
+        },
+    };
+
+    // @ts-ignore
     return (
         <div className="grow w-full flex items-center justify-center">
-            <div className="flex flex-col gap-2 w-full max-w-4xl px-4 mb-32 text-zinc-900">
-                <div className="flex gap-3 items-center px-6">
+            <motion.div
+                className="flex flex-col gap-2 w-full max-w-4xl px-4 mb-32 text-zinc-900"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+            >
+                <motion.div variants={itemVariants} className="flex gap-3 items-center px-6">
                     <Image src="/logo.png" alt="Gemini Logo" width={20} height={20}/>
                     <span className="text-2xl font-light ">Hi, Abdulrahman</span>
-                </div>
+                </motion.div>
 
-                <h2 className="text-4xl mb-4 px-6">
+                <motion.h2 variants={itemVariants} className="text-4xl mb-4 px-6">
                     Where should we start?
-                </h2>
+                </motion.h2>
 
-                <InputField/>
-            </div>
+                <motion.div variants={itemVariants}>
+                    <InputField/>
+                </motion.div>
+            </motion.div>
         </div>
     );
 };

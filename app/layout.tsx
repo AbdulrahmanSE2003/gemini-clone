@@ -6,7 +6,7 @@ import {ReactNode} from "react";
 const googleSans = Google_Sans({
   variable: "--font-google-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  // weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {

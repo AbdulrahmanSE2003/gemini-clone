@@ -1,16 +1,32 @@
-// @flow
-import * as React from 'react';
+'use client'
+import {useRef, useState} from 'react';
 import {InputOptions} from "@/app/_components/InputOptions";
 
 export const InputField = () => {
+    const [text, setText] = useState("");
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    const handleInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const target = e.target;
+        setText(target.value);
+
+        target.style.height = "auto";
+        const nextHeight = Math.min(target.scrollHeight, 300);
+        target.style.height = `${nextHeight}px`;
+    };
+
     return (
-        <div className="relative bg-white px-6 pt-5 w-full h-32 max-h-52 rounded-[30px] border border-brand-gray shadow-md ">
-            <input
-                type="text"
+        <div className="relative w-full h-fit rounded-[30px] border border-brand-gray bg-white px-6 pb-3 pt-5 shadow-md">
+            <textarea
+                ref={textareaRef}
+                value={text}
+                onChange={handleInput}
+                rows={1}
                 placeholder="Ask Gemini 3"
-                className="bg-white w-full px-3 text-zinc-900 border-brand-gray outline-none focus:border-brand-gray transition-all text-lg"
+                className="w-full resize-none bg-transparent px-3 text-lg leading-relaxed text-brand-dark-gray outline-none placeholder:text-brand-gray-dark"
+                style={{ minHeight: '44px' }}
             />
-            <InputOptions/>
+            <InputOptions text={text}/>
         </div>
     );
 };
