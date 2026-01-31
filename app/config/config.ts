@@ -1,6 +1,6 @@
-import {GoogleGenAI} from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
-// بنمرر الكي يدوي من المتغير اللي بيبدأ بـ NEXT_PUBLIC
+// Initialize GenAI with API Key
 const ai = new GoogleGenAI({
     apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY
 });
@@ -8,7 +8,7 @@ const ai = new GoogleGenAI({
 export const runChat = async (prompt: string) => {
     try {
         const response = await ai.models.generateContent({
-            model: "gemini-3-flash-preview", // الموديل حسب شرح الشركة
+            model: "gemini-3-flash-preview", // Model version
             contents: [{ role: "user", parts: [{ text: prompt }] }],
         });
 
@@ -17,7 +17,7 @@ export const runChat = async (prompt: string) => {
 
         return response.text;
     } catch (error) {
-        console.error("خطأ في الاتصال:", error);
+        console.error("Connection Error:", error);
         throw error;
     }
 };

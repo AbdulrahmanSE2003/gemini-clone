@@ -14,10 +14,10 @@ export const GeminiResponse = ({ text = "", isLoading = false }: ResProps) => {
     useEffect(() => {
         if (!isLoading && text) {
             let i = 0;
-            setDisplayedText(""); // بنصفر النص في البداية
+            setDisplayedText(""); // Reset text
 
             const interval = setInterval(() => {
-                // بنزود حرف كل 15 ملي ثانية
+                // Typewriter effect (one char per 15ms)
                 setDisplayedText(text.slice(0, i + 1));
                 i++;
 
@@ -44,14 +44,14 @@ export const GeminiResponse = ({ text = "", isLoading = false }: ResProps) => {
 
             <div className="flex flex-col gap-3 w-full overflow-hidden text-zinc-800">
                 {isLoading ? (
-                    /* اللودر بتاعك الشيك */
+                    /* Loading Skeleton */
                     <div className="flex flex-col gap-2 w-full animate-pulse">
                         <div className="h-4 bg-linear-to-r from-blue-100 via-zinc-200 to-blue-100 rounded-md w-[90%]" />
                         <div className="h-4 bg-linear-to-r from-blue-100 via-zinc-200 to-blue-100 rounded-md w-full" />
                         <div className="h-4 bg-linear-to-r from-blue-100 via-zinc-200 to-blue-100 rounded-md w-[70%]" />
                     </div>
                 ) : (
-                    /* الماركدوان بياخد الـ string اللي بيتبني يدوياً */
+                    /* Render constructed markdown string */
                     <div className="prose prose-zinc max-w-none prose-p:leading-relaxed prose-pre:bg-zinc-900 prose-pre:p-4">
                         <ReactMarkdown>{displayedText}</ReactMarkdown>
                     </div>

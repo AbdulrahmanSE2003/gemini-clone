@@ -28,7 +28,7 @@ const AboutModal = ({ isOpen, onClose }: Props) => {
                        w-[90%] max-w-md bg-white/80 backdrop-blur-xl rounded-[2rem] p-8 shadow-2xl 
                        z-[1000] border border-white/50 overflow-hidden"
                     >
-                        {/* لمسة ألوان جيمناي في الخلفية (Blurry Blobs) */}
+                        {/* Background ambient effects */}
                         <div className="absolute -top-10 -left-10 w-32 h-32 bg-blue-400/20 blur-[50px] rounded-full" />
                         <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-red-400/10 blur-[50px] rounded-full" />
 
@@ -69,15 +69,15 @@ const AboutModal = ({ isOpen, onClose }: Props) => {
                                 </a>
                             </div>
 
-                            {/* الزرار الفانسي بجد */}
+                            {/* Dismiss Button */}
                             <button
                                 onClick={onClose}
                                 className="relative group w-full py-4 rounded-2xl overflow-hidden shadow-lg transition-transform active:scale-[0.98] cursor-pointer"
                             >
-                                {/* اللون الأساسي للزرار */}
+                                {/* Button Base Layer */}
                                 <div className="absolute inset-0 bg-brand-dark-gray transition-opacity duration-500 group-hover:opacity-0" />
 
-                                {/* الـ Gradient اللي بيظهر في الهوفر */}
+                                {/* Hover Gradient Layer */}
                                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-linear-to-tr from-blue-600 to-red-500 transition-opacity duration-500 animate-gradient-x" />
 
                                 <span className="relative text-white font-bold tracking-wider">

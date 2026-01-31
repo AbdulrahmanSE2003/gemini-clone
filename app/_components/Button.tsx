@@ -22,7 +22,7 @@ const Button = (props: ButtonProps) => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
         className={`hover:bg-brand-gray cursor-pointer transition-colors duration-200 rounded-full p-2 ml-auto ${otherProps.className || ""}`}
-        {...otherProps} // كدة otherProps مفيهاش isMotioned وخلاص
+        {...otherProps} // Forward remaining props
       >
         {children}
       </motion.button>
@@ -32,7 +32,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       className={`hover:bg-brand-gray cursor-pointer transition-colors duration-200 rounded-full p-2 ${otherProps.className || ""}`}
-      {...otherProps} // ولا هنا كمان
+      {...otherProps}
     >
       {children}
     </button>

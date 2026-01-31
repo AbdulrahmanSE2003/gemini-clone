@@ -1,5 +1,5 @@
 'use client'
-import { useContext, useEffect, useRef } from 'react'; // ضفنا useEffect
+import { useContext, useEffect, useRef } from 'react'; // Added useEffect
 import { InputOptions } from "@/app/_components/InputOptions";
 import { context } from "@/app/_context/Context";
 
