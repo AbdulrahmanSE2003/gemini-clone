@@ -4,8 +4,19 @@ import { InputOptions } from "@/app/_components/InputOptions";
 import { context } from "@/app/_context/Context";
 
 export const InputField = () => {
-    const { text, setText, messages } = useContext(context)!
+    const { text, setText, messages, onSent } = useContext(context)!
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        if (e.ctrlKey && e.key === 'Enter') {
+            e.preventDefault();
+            if (text.trim()) {
+                onSent(text);
+            }
+        }
+    };
+
 
     useEffect(() => {
         if (text === "" && textareaRef.current) {
@@ -26,6 +37,7 @@ export const InputField = () => {
             <textarea
                 ref={textareaRef}
                 value={text}
+                onKeyDown={handleKeyDown}
                 onChange={handleInput}
                 rows={1}
                 placeholder="Ask Gemini 3"
